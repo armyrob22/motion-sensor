@@ -1,0 +1,10 @@
+../Core/Src/main.c:66:5:_write	1
+../Core/Src/main.c:71:6:I2C_Scan	3
+../Core/Src/main.c:84:9:MPU6050_Init	2
+../Core/Src/main.c:106:6:MPU6050_Read_Accel	1
+../Core/Src/main.c:123:5:main	3
+../Core/Src/main.c:207:6:SystemClock_Config	4
+../Core/Src/main.c:257:13:MX_I2C1_Init	4
+../Core/Src/main.c:305:13:MX_USART2_UART_Init	2
+../Core/Src/main.c:340:13:MX_GPIO_Init	1
+../Core/Src/main.c:382:6:Error_Handler	1
