@@ -11,11 +11,11 @@ from datetime import datetime
 # Configuration
 SERIAL_PORT = '/dev/ttyACM0'
 BAUD_RATE = 115200  # Adjust if your STM32 uses different baud rate
-DB_HOST = '10.107.210.5'
+DB_HOST = '10.107.xxx.x'
 DB_PORT = 5432
 DB_NAME = 'motion_data'
-DB_USER = 'armyrob'
-DB_PASSWORD = 'Pepper122'  # Replace with actual password
+DB_USER = 'user'
+DB_PASSWORD = 'xx'  # Replace with actual password
 
 BATCH_SIZE = 40  # Insert after this many samples
 BATCH_TIMEOUT = 4  # Or insert after this many seconds
