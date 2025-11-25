@@ -71,13 +71,25 @@ def fetch_recent_data(limit=1000):
     return df.sort_values('id')  # Sort chronologically for plotting
 
 def fetch_time_range_data(hours=24):
-    """Fetch data from last N hours"""
-    query = """
-        SELECT id, timestamp, x_accel, y_accel, z_accel, change_value
-        FROM vibration_data
-        WHERE timestamp >= NOW() - INTERVAL '%s hours'
-        ORDER BY id ASC
-    """
+    """Fetch data from last N hours with smart downsampling"""
+    
+    # For large time ranges, downsample to every Nth sample
+    if hours > 24:
+        sample_interval = max(1, int(hours / 24))  # More hours = more downsampling
+        query = f"""
+            SELECT id, timestamp, x_accel, y_accel, z_accel, change_value
+            FROM vibration_data
+            WHERE timestamp >= NOW() - INTERVAL '{hours} hours'
+            AND id % {sample_interval} = 0
+            ORDER BY id ASC
+        """
+    else:
+        query = f"""
+            SELECT id, timestamp, x_accel, y_accel, z_accel, change_value
+            FROM vibration_data
+            WHERE timestamp >= NOW() - INTERVAL '{hours} hours'
+            ORDER BY id ASC
+        """
     return fetch_data(query, params=(hours,))
 
 def main():

@@ -13,7 +13,7 @@ Real-time vibration monitoring system demonstrating full-stack embedded systems 
 - Data Ingestion: Python script using pyserial for continuous data collection with batch PostgreSQL inserts
 - Database: PostgreSQL running in Kubernetes cluster with persistent storage
 - Deployment: Linux systemd service for 24/7 data collection
-- Visualization: Streamlit dashboard (in development) for real-time and historical data analysis
+- Visualization: Streamlit dashboard for real-time and historical data analysis
 
 ## Features
 - Real-time 3-axis acceleration monitoring (x,y,z g-force)
@@ -54,3 +54,37 @@ STM32 Nucleo (STM32L476RG)
 └── USB Serial → Host Computer (Dell OptiPlex)
     └── Python Ingestion Script
         └── PostgreSQL (Kubernetes Cluster)
+            └── Streamlit Dashboard (Data Visualization)
+
+## Dashboard
+
+-The dashboard offers real-time visualization of the data within the database
+
+![Main Dashboard View](images/main-start.png)
+
+### Features
+- **Recent Samples**: Displays the most recent sensor readings with configurable sample count
+- **Time Range Analysis**: Query historical data by date/time range
+- **Live Statistics**: Shows total samples collected and collection status
+
+-Time range from 0 hours to 168 hours/1 week.
+
+![Time range](images/time-range.png)
+
+-These next 2 screenshots show how you can move the slider to change from 1000 to 10,000 of the lastest samples.
+
+![Recent Samples](images/recent-samples-one.png)
+
+![Recent Samples](images/recent-samples-ten.png)
+
+-Data flowed none-stop to 1 million samples!
+
+![Million Samples](images/million-sample)
+
+-Magnitude reading
+
+![Magnitude](images/mag.png)
+
+-The Statistics feature shows the average min,max of the data plus standard deviation
+
+![Statistics](images/stats.png)
