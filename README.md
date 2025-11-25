@@ -79,7 +79,7 @@ STM32 Nucleo (STM32L476RG)
 
 -Data flowed none-stop to 1 million samples!
 
-![Million Samples](images/million-sample)
+![Million Samples](images/million-sample.png)
 
 -Magnitude reading
 
